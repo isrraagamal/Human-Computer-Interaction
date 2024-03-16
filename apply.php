@@ -187,12 +187,10 @@ require("student.php");
 
 
 if ($_POST && isset($_POST['apply'])) {
-    // Create a new student object and set its properties
     $apply = new student($pdo);
  
    $apply = $apply->apply($_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['city'], $_POST['state'], $_POST['zip'], $_POST['degree'], $_POST['year'], $_POST['month'], $_POST['day']);
     if ($apply === true) {
-        //display a success message
         echo 'Your Application is sent successfully';
         $_POST['firstName'] = null;
         $_POST['lastName'] = null;
@@ -204,12 +202,10 @@ if ($_POST && isset($_POST['apply'])) {
         $_POST['year'] = null; 
         $_POST['month'] = null;
         $_POST['day'] = null;
-        //header('Location: index.php');
         exit;
 
     } 
      else {
-         // Display an error message
          echo 'An error occurred while Applying.';
      }
 }
